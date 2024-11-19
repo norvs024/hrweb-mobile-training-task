@@ -77,7 +77,7 @@ class Dashboard extends StatelessWidget {
               const PopupMenuItem<String>(
                 value: 'logout',
                 child: Row(
-                  children: const [
+                  children:[
                     Icon(Icons.logout, color: Colors.black),
                     SizedBox(width: 8),
                     Text('Logout'),
