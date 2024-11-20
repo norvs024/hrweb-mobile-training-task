@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // Handle successful login
       _showMessage('Login successful');
       // Navigate to dashboard
-      // Navigator.pushReplacementNamed(context, '/dashboard');
+      Navigator.pushReplacementNamed(context, '/dashboard');
     } else {
       _showMessage(result['message']);
     }

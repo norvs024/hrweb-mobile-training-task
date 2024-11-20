@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task/dashboard.dart';
-import 'package:task/login.dart';
+import 'package:task/views/dashboard_screen.dart';
 import 'package:task/views/login_screen.dart';
 // import 'package:flutter/services.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const LoginScreen(),
       routes: {
-        '/dashboard': (context) => const Dashboard(),
+        '/dashboard': (context) => DashboardScreen(),
         '/login': (context) => const LoginScreen(),
       }
     );

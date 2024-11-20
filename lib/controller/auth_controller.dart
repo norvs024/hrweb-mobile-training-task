@@ -6,6 +6,12 @@ import '../models/user_model.dart';
 class AuthController {
   static const String baseUrl = 'http://10.0.2.2/task2/public';
 
+  // Remove the shared preferences logic for now
+  static Future<void> logout() async {
+    // Implement a basic logout without shared preferences
+    print("Logged out successfully!");
+  }
+
   Future<Map<String, dynamic>> login(UserModel user) async {
     try {
       final response = await http.post(
