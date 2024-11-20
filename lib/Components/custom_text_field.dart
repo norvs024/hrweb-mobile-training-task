@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final bool obscureText;
+  final Widget? suffixIcon; // Add suffixIcon
 
   const CustomTextField({
     super.key, // Super parameter for 'key'
@@ -14,6 +15,7 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.obscureText = false,
+    this.suffixIcon,
   });
 
   @override
@@ -29,6 +31,7 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             prefixIcon: Icon(prefixIcon),
+            suffixIcon: suffixIcon,
           ),
         );
     }
