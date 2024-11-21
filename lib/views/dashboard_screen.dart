@@ -6,10 +6,16 @@ import 'package:task/Components/dashboard_drawer.dart';
 import 'package:task/controller/auth_controller.dart';
 import 'package:task/login.dart';
 import 'package:task/models/menu_item_model.dart';
+import 'package:task/views/login_screen.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   DashboardScreen({Key? key}) : super(key: key);
 
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   final List<MenuItemModel> menuItems = [
     MenuItemModel(
       title: 'Tasks',
@@ -74,7 +80,7 @@ class DashboardScreen extends StatelessWidget {
       if (context.mounted) {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const Login()), // Replace with your Login screen
+          MaterialPageRoute(builder: (context) => const LoginScreen()), // Replace with your Login screen
           (route) => false,
         );
       }

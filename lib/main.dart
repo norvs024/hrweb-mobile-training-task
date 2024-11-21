@@ -1,10 +1,24 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:task/views/dashboard_screen.dart';
 import 'package:task/views/login_screen.dart';
 // import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  FlutterError.onError = (FlutterErrorDetails details) {
+    print('Unhandled Flutter Error:');
+    print(details.exceptionAsString());
+    print(details.stack);
+  };
+
+  runZonedGuarded(() {
+    runApp(MyApp());
+  }, (error, stackTrace) {
+    print('Unhandled Dart Error:');
+    print(error);
+    print(stackTrace);
+  });
 }
 
 class MyApp extends StatelessWidget {

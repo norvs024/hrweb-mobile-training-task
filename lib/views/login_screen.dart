@@ -34,10 +34,16 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isLoading = false);
 
     if (result['success']) {
-      // Handle successful login
-      _showMessage('Login successful');
-      // Navigate to dashboard
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      // Debugging SharedPreferences after login
+      final isLoggedIn = await AuthController.isLoggedIn();
+      print('Is Logged In after login: $isLoggedIn');
+      
+      if (isLoggedIn) {
+        _showMessage('Login successful');
+        Navigator.pushReplacementNamed(context, '/dashboard');
+      } else {
+        _showMessage('Login failed to update session. Please try again.');
+      }
     } else {
       _showMessage(result['message']);
     }
