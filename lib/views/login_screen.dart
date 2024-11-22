@@ -1,7 +1,9 @@
 // lib/views/screens/login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:task/Components/login_form.dart';
+import 'package:task/Components/snackbar_util.dart';
 import 'package:task/controller/auth_controller.dart';
+import 'package:task/views/dashboard_screen.dart';
 import '../../models/user_model.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,7 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordController.text.trim();
 
     if (username.isEmpty || password.isEmpty) {
-      _showMessage('Please enter both username and password');
+      // _showMessage('Please enter both username and password');
+       showSnackBar(context, "Please enter both username and password");
       return;
     }
 
@@ -39,21 +42,29 @@ class _LoginScreenState extends State<LoginScreen> {
       print('Is Logged In after login: $isLoggedIn');
       
       if (isLoggedIn) {
-        _showMessage('Login successful');
-        Navigator.pushReplacementNamed(context, '/dashboard');
+        // _showMessage('Login successful');
+        showSnackBar(context, "Login successful");
+        // Navigator.pushReplacementNamed(context, '/dashboard');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => DashboardScreen()),
+        );
       } else {
-        _showMessage('Login failed to update session. Please try again.');
+        // _showMessage('Login failed to update session. Please try again.');
+        showSnackBar(context, "Login failed to update session. Please try again.");
       }
     } else {
-      _showMessage(result['message']);
+      // _showMessage(result['message']);
+      showSnackBar(context, result['message']);
+
     }
   }
 
-  void _showMessage(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
-  }
+  // void _showMessage(String message) {
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     SnackBar(content: Text(message)),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

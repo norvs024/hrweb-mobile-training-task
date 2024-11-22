@@ -106,7 +106,7 @@ Future<Map<String, dynamic>> login(UserModel user) async {
     print('Attempting to login with username: ${user.username}');
     
     // Clear previous auth data before new login attempt
-    await clearAllAuthData();
+    // await clearAllAuthData();
 
     // Add network connectivity check
     try {

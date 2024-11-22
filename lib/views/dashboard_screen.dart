@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:task/Components/dashboard_card.dart';
 import 'package:task/Components/dashboard_drawer.dart';
+import 'package:task/Components/snackbar_util.dart';
 import 'package:task/controller/auth_controller.dart';
 import 'package:task/login.dart';
 import 'package:task/models/menu_item_model.dart';
@@ -77,20 +78,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ));
 
       // Navigate to login screen (mocking login screen for now)
+              showSnackBar(context, 'Logout Successfully');
       if (context.mounted) {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()), // Replace with your Login screen
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
           (route) => false,
         );
+
+
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => const LoginScreen()),
+        // );
       }
     } catch (e) {
       // Handle error
       if (context.mounted) {
         Navigator.pop(context); // Remove loading dialog
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Logout failed: $e')),
-        );
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(content: Text('Logout failed: $e')),
+        // );
+        showSnackBar(context, 'Logout failed: $e');
+
       }
     }
   }
