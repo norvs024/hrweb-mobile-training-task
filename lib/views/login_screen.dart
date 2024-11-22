@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
         // Navigator.pushReplacementNamed(context, '/dashboard');
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => DashboardScreen()),
+          MaterialPageRoute(builder: (context) => const DashboardScreen()),
         );
       } else {
         // _showMessage('Login failed to update session. Please try again.');

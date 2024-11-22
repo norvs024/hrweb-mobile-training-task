@@ -57,7 +57,7 @@ class Dashboard extends StatelessWidget {
 
                  Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => Login()), // Navigate to LoginScreen
+                  MaterialPageRoute(builder: (context) => const Login()), // Navigate to LoginScreen
                   (Route<dynamic> route) => false, // Removes all previous routes
                 );
 
@@ -67,7 +67,7 @@ class Dashboard extends StatelessWidget {
               const PopupMenuItem<String>(
                 value: 'profile',
                 child: Row(
-                  children: const [
+                  children: [
                     Icon(Icons.person, color: Colors.black),
                     SizedBox(width: 8),
                     Text('Profile'),

@@ -13,7 +13,7 @@ void main() {
   };
 
   runZonedGuarded(() {
-    runApp(MyApp());
+    runApp(const MyApp());
   }, (error, stackTrace) {
     print('Unhandled Dart Error:');
     print(error);
@@ -28,9 +28,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false,
       home: const LoginScreen(),
       routes: {
-        '/dashboard': (context) => DashboardScreen(),
+        '/dashboard': (context) => const DashboardScreen(),
         '/login': (context) => const LoginScreen(),
       }
     );
