@@ -168,7 +168,7 @@ class _LoginState extends State<Login> {
 
                     // Password Input
                     CustomTextField(
-                      obscureText: true,
+                      // obscureText: true,
                       labelText: 'Password',
                       prefixIcon: Icons.lock,
                       controller: _passwordController, // Pass controller here

@@ -12,7 +12,7 @@ class LoginForm extends StatelessWidget {
   final VoidCallback onForgotPassword;
 
   const LoginForm({
-    Key? key,
+    super.key,
     required this.usernameController,
     required this.passwordController,
     required this.isLoading,
@@ -20,13 +20,11 @@ class LoginForm extends StatelessWidget {
     required this.onGoogleSignIn,
     required this.onFacebookSignIn,
     required this.onForgotPassword,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    bool _isPasswordVisible = false;
-    
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -53,11 +51,10 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: screenHeight * 0.02),
 
           CustomTextField(
-            obscureText: !_isPasswordVisible,
             labelText: 'Password',
             prefixIcon: Icons.lock,
             controller: passwordController,
-            
+            isPassword: true, // Enables password visibility toggle
           ),
           SizedBox(height: screenHeight * 0.02),
 

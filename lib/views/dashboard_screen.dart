@@ -5,12 +5,11 @@ import 'package:task/Components/dashboard_card.dart';
 import 'package:task/Components/dashboard_drawer.dart';
 import 'package:task/Components/snackbar_util.dart';
 import 'package:task/controller/auth_controller.dart';
-import 'package:task/login.dart';
 import 'package:task/models/menu_item_model.dart';
 import 'package:task/views/login_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -78,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ));
 
       // Navigate to login screen (mocking login screen for now)
-              showSnackBar(context, 'Logout Successfully');
+      showSnackBar(context, 'Logout Successfully');
       if (context.mounted) {
         Navigator.pushAndRemoveUntil(
           context,
