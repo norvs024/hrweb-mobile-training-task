@@ -22,6 +22,19 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool _isPasswordVisible = false; // Track visibility
+  bool _isFieldEmpty = true;
+
+   @override
+  void initState() {
+    super.initState();
+
+    // Add listener to the controller to monitor changes
+    widget.controller?.addListener(() {
+      setState(() {
+        _isFieldEmpty = widget.controller!.text.isEmpty;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: BorderRadius.circular(10),
         ),
         prefixIcon: Icon(widget.prefixIcon),
-        suffixIcon: widget.isPassword
+        suffixIcon: widget.isPassword && !_isFieldEmpty
             ? IconButton(
                 icon: Icon(
                   _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
