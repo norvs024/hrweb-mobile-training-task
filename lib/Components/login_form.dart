@@ -63,8 +63,8 @@ class LoginForm extends StatelessWidget {
           _buildDivider(),
           SizedBox(height: screenHeight * 0.03),
           _buildSigninWithGoogle(),
-          SizedBox(height: screenHeight * 0.02),
-          _buildSigninWithFacebook(),
+          // SizedBox(height: screenHeight * 0.02),
+          // _buildSigninWithFacebook(),
         ],
       ),
     );

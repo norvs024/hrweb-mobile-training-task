@@ -84,14 +84,19 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 height: screenHeight * 0.25,
                 color: Colors.brown[200],
-                child: const Center(
-                  child: Text(
-                    'SAMPLE LOGO',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                child: Center(
+                  // child: Text(
+                  //   'SAMPLE LOGO',
+                  //   style: TextStyle(
+                  //     fontSize: 30,
+                  //     fontWeight: FontWeight.bold,
+                  //     color: Colors.white,
+                  //   ),
+                  // ),
+                  child: Image.asset('assets/logo/logo.png', 
+                    // width: 390,
+                    color: Colors.brown[200],
+                    colorBlendMode: BlendMode.multiply,
                   ),
                 ),
               ),
