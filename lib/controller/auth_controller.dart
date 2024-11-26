@@ -6,7 +6,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user_model.dart';
 
 class AuthController {
-  static const String baseUrl = 'http://10.0.2.2/task2/public';
+  // static const String baseUrl = 'http://10.0.2.2/task2/public'; //EMULATOR
+  static const String baseUrl = 'http://192.168.137.1/task2/public'; //Android device
+
+
   
   // Shared Preference Keys
   static const String _tokenKey = 'auth_token';
@@ -138,7 +141,7 @@ Future<Map<String, dynamic>> login(UserModel user) async {
         },
         body: user.toJson(),
       ).timeout(
-        const Duration(seconds: 10),
+        const Duration(seconds: 60),
         onTimeout: () {
           throw TimeoutException('Connection timed out');
         },
